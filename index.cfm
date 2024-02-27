@@ -16,7 +16,7 @@
 <!--- Primitives (Simple) [string, number, boolean, null, list] --->
 <!--- Nonprimitives (Complex) [function, array, struct] --->
 
-
+<h1>Declare Variables</h1>
 
 <!--- Declare Variables --->
 
@@ -30,6 +30,7 @@
 <cfset variables.aborts = true />
 <cfdump var="#aborts#" />
 
+<h1>Array</h1>
 
 <br >
 <!--- Declare array --->
@@ -57,10 +58,11 @@
 <p>Avarage of array</p>
 <cfdump var="#variables.avarage.avg()#" />
 
+
 <br/>
 <!--- Declare structure --->
-
-<cfset variables.profile = StructNew() />
+<h1>Struct</h1>
+<cfset variables.profile = StructNew("ordered") />
 
 <cfset variables.profile['id'] = '1' />
 <cfset variables.profile['name'] = 'Umang' />
@@ -68,13 +70,23 @@
 <cfset variables.profile['age'] = '22' />
 
 
-<!--- <cfset variables.profile /> --->
+<br/>
+<cfdump var="#variables.profile#" /> 
 
 <br/>
 <cfdump var="#variables.profile.name#" /> 
 
 <br/>
-<cfdump var="#variables.profile#" /> 
+<cfset variables.employee = StructNew() />
+
+<cfset variables.employee = [
+    "id" : "1",
+    "name" : "virat sharma",
+    "age" : "35"
+]/>
+
+<cfdump var="#variables.employee#" />
+
 
 <br/>
 <cfdump var="#now()#" />
