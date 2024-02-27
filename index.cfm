@@ -60,7 +60,7 @@
 
 
 <br/>
-<!--- Declare structure --->
+<!--- Declare structure  --->
 <h1>Struct</h1>
 <cfset variables.profile = StructNew("ordered") />
 

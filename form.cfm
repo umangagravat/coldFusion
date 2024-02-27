@@ -12,6 +12,7 @@
             <style>
                 input{
                     display : flex;  
+                    flex-direction : column;
                 }
             </style> 
         </head>

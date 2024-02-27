@@ -1,7 +1,4 @@
-<!--- <cfdump var = "#url.firstName#" label="Fisrt Name"/>
-<cfdump var = "#url.lastName#" label="Last Name" />
-<cfdump var = "#url.email#" abort="true"/>
-<cfdump var = "#fullName#" /> --->
+<!--- <cfdump var = "#url.firstName#" label="Fisrt Name"/> --->
 <DOCTYPE html>
 <html>
     <head>
