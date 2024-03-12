@@ -1,0 +1,334 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    background-color: rgb(246, 246, 246);
+    width: 60%;
+    height: 100%;
+    text-align: left;
+}
+
+.form-head{
+    background-color:  #002c6a;
+    color: rgb(255, 253, 253);
+    padding: 20px 100px 20px 100px;
+}
+
+h1{
+    font-family: 'Franklin Gothic Medium';
+}
+
+h4{
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Cambria;
+    padding-top: 10px;
+}
+
+.info{
+    background-color:#fd9b28;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.co-info a{
+    text-decoration: none;
+    color: white;
+    font-family: Cambria;
+}
+
+.head-para{
+    padding: 20px 80px 20px 80px;
+    font-family: sans-serif;
+    line-height: 20px;
+}
+
+.head-para h2{
+    color: #002c6a;
+    margin-bottom: 5px;
+}
+
+.name{
+    padding: 20px 80px 20px 80px;
+}
+.name label{
+    display: block;
+    padding-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.name input{
+    padding: 5px;
+    width: 49%;
+    
+}
+
+.gender-bod {
+    padding: 20px 80px 20px 80px;
+    display: flex;
+}
+
+.gender{
+    width: 50%;
+}
+
+.gender p{
+    padding-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.gender input{
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.dob{
+    width: 50%;
+}
+
+.dob label{
+    display: block;
+    padding-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.dob input{
+    width: 100%;
+    padding: 5px;
+}
+
+.f-email{
+    padding: 20px 80px 20px 80px;
+}
+
+.f-email label{
+    display: block;
+    margin-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.f-email input{
+    width: 100%;
+    padding: 5px;
+}
+
+.f-phone{
+    padding: 20px 80px 20px 80px;
+}
+
+.f-phone label{
+    display: block;
+    margin-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.f-phone input{
+    width: 100%;
+    padding: 5px;
+}
+
+.address{
+    padding: 20px 80px 20px 80px;
+}
+
+.address label{
+    display: block;
+    padding-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.address input{
+    padding: 5px;
+    width: 49%;
+}
+
+.city-zip{
+    padding: 20px 80px 20px 80px;
+    display: flex;
+}
+
+.city{
+    width: 49%;
+}
+
+.city label{
+    display: block;
+    padding-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.city input{
+    width: 100%;
+    padding: 5px;
+}
+
+.zip{
+    margin-left: 5px;
+    width: 50%;
+}
+
+.zip label{
+    display: block;
+    padding-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.zip input{
+    width: 100%;
+    padding: 5px;
+}
+
+.position{
+    padding: 20px 80px 20px 80px;
+}
+
+.position label{
+    font-family: Open Sans, Arial;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.position select{
+    width: 100%;
+    padding: 5px;
+    color: gray;
+}
+
+.otherpos{
+    padding: 5px;
+    width: 49%;
+    margin-top: 20px;
+}
+
+.skils{
+    padding: 20px 80px 20px 80px;
+}
+
+.skils p{
+    display: block;
+    padding-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.skils input{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.otherinput{
+    padding: 5px;
+    width: 49%;
+}
+
+.employee{
+    padding: 20px 80px 20px 80px;
+}
+
+.employee p{
+    display: block;
+    padding-bottom: 10px;
+    font-family:Open Sans, Arial; 
+}
+
+.employee input{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.time{
+    padding: 20px 80px 20px 80px;
+}
+
+.time p{
+    display: block;
+    padding-bottom: 10px;
+    font-family:Open Sans, Arial;
+}
+
+.time select{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.term{
+    padding: 20px 80px 20px 80px;
+}
+
+.button{
+    padding: 20px 80px 20px 80px;
+}
+
+button{
+    padding: 10px;
+    background-color: #002c6a;
+    border: none;
+    color: white;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.resume{
+    padding: 20px 80px 20px 80px;
+}
+
+.resume label{
+    font-family: Open Sans, Arial;
+    display: block;
+    padding-bottom: 10px;
+}
+
+span{
+    color: red;
+    font-size: 1.2rem;
+}
+
+input{
+    outline: none;
+}
+
+.term label{
+    font-family: Open Sans, Arial;
+}
+
+
+@media only screen and (max-width:750px){
+
+    .content{
+        display: flex;
+        /* justify-content: center; */
+    }
+
+    .form{
+        background-color: rgb(246, 246, 246);
+        width: 100%;
+        height: 100%;
+        text-align: left;
+    }
+
+    .form-head{
+        background-color:  #002c6a;
+        color: rgb(255, 253, 253);
+        padding: 30px 100px 30px 100px;
+    }
+
+    .form-head h1{
+        font-size: 2.5rem;
+    }
+
+    .form-head h4{
+        font-size: 1rem;
+    } 
+    
+
+} 
+
+
+
