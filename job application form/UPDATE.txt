@@ -1,0 +1,9 @@
+    -- update isummation
+    --     set firstName = <cfqueryparam value="#form.firstName#" cfsqltype="cf_sql_varchar" />,
+    --         lastname = <cfqueryparam value="#form.firstName#" cfsqltype="cf_sql_varchar" />,
+    --         email = <cfqueryparam value="#form.firstName#" cfsqltype="cf_sql_varchar" />
+    -- where id = <cfqueryparam value="#form.id#" cfsqltype="cf_sql_integer" />
+
+
+
+<!--- <cflocation url="/edit.cfm?id=#form.id#&message=Record Updated successfully" /> --->

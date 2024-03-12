@@ -1,100 +1,84 @@
-<!--- ColdFusion variable scope --->
+<cfset variables.firstName = "umang" />
+<cfset variables.lastName = "agravat" />
+<cfset variables.email= "agrava@gmail.com" />
 
-<!---
-    1. variables
-    2. form
-    3. url
-    4. function scope (var, local & arguments)
-    5. application
-    6. session
-    7. cookie
-    8. attribute
-    9. request
-    10. caller
---->
+<cfquery datasource="jobapps">
+    update isummation
+         set firstName = <cfqueryparam value="#form.firstName#" cfsqltype="cf_sql_varchar" />,
+             lastname = <cfqueryparam value="#form.lastName#" cfsqltype="cf_sql_varchar" />,
+             email = <cfqueryparam value="#form.email#" cfsqltype="cf_sql_varchar" />
+     where id = <cfqueryparam value="#form.id#" cfsqltype="cf_sql_integer" />
 
-<!--- Primitives (Simple) [string, number, boolean, null, list] --->
-<!--- Nonprimitives (Complex) [function, array, struct] --->
+<cflocation url="/edit.cfm?id=#form.id#&message=Record Updated successfully" /> 
 
-<h1>Declare Variables</h1>
-
-<!--- Declare Variables --->
-
-
-<cfset variables.firstName = 'Umang'/>
-<cfdump var="#firstName#" /> 
-<cfset variables.lastName = 'Agravat' />
-<cfdump var="#lastName#" />
-<cfset variables.age = 22 />
-<cfdump var="#age#" />
-<cfset variables.aborts = true />
-<cfdump var="#aborts#" />
-
-<h1>Array</h1>
-
-<br >
-<!--- Declare array --->
-
-<cfset variables.names = ArrayNew(1) />
-
-<cfset ArrayAppend(variables.names, 'Umang') />
-<cfset ArrayAppend(variables.names, 'ajay') />
-<cfset arrayAppend(variables.names, ['chirag', 'jaydeep', 'jay']) />
-
-<cfdump var="#variables.names#" />
-
-<cfset variables.list = ArrayNew() />
-
-<cfset list.append('jaydeep') />
-<cfset list.append(['umang','chirag','ajay'],true) />
-
-<br>
-<cfset variables.city = ['ahmedabad','baroda','surat','rajkot'] />
-<cfdump var="#variables.city#" />
-
-<br>
-<cfset variables.avarage = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] />
-<cfdump var="#avarage#" />
-<p>Avarage of array</p>
-<cfdump var="#variables.avarage.avg()#" />
+    insert into isummation (firstName, lastName, email)
+    values 
+    (
+        <cfqueryparam value="#url.firstName#" cfsqltype="cf_sql_varchar" />,
+        <cfqueryparam value="#url.lastName#" cfsqltype="cf_sql_varchar" />,
+        <cfqueryparam value="#url.email#" cfsqltype="cf_sql_varchar" />,
+    )
+</cfquery>
 
 
-<br/>
-<!--- Declare structure  --->
-<h1>Struct</h1>
-<cfset variables.profile = StructNew("ordered") />
+<cfabort />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/style.css">    
+</head>
+<body>
+    <cfoutput>
+        <table border="1" cellpadding="5" cellspacing="0" width="100%">
+            <tr>
+                <td>First_Name</td>
+                <td>Last_Name</td>
+                <td>Email</td>
+                <td>Gender</td>
+            </tr>
+            <cfloop query="variables.qIsummation">
+                <tr>
+                    <td>#variables.qIsummation.firstName#</td>
+                    <td>#variables.qIsummation.lastName#</td>
+                    <td>#variables.qIsummation.email#</td>
+                    <td>#variables.qIsummation.gender#</td>
+                    <!--- <td>#dateTimeFormat(variables.qAddress.last_update, "dd/mm/yyyy HH:MM:ss tt")#</td> --->
+                </tr>
+            </cfloop>
+        </table>
+    </cfoutput>
+</body>
+</html>
 
-<cfset variables.profile['id'] = '1' />
-<cfset variables.profile['name'] = 'Umang' />
-<cfset variables.profile['rollNo'] = '78' />
-<cfset variables.profile['age'] = '22' />
 
 
-<br/>
-<cfdump var="#variables.profile#" /> 
-
-<br/>
-<cfdump var="#variables.profile.name#" /> 
-
-<br/>
-<cfset variables.employee = StructNew() />
-
-<cfset variables.employee = [
-    "id" : "1",
-    "name" : "virat sharma",
-    "age" : "35"
-]/>
-
-<cfdump var="#variables.employee#" />
 
 
-<br/>
-<cfdump var="#now()#" />
 
-
-<br/>
-<cfoutput>
-    #variables.firstName# <br />
-    #variables.lastName# <br/>
-    #variables.age# <br/> 
-</cfoutput>
+<!--- <!--- <cfparam name="url.name" default=""> --->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/style.css">    
+</head>
+<body>
+    <div class="main">
+            <cfinclude template="/includes/header.cfm" />
+        <div class="navbar">
+            <!--- <cfset url.name = "" /> --->
+            <cfinclude template="/includes/sidebar.cfm" />
+            <div class="task">
+                <!--- <cflocation url="/table1.cfm" addtoken="false" />     --->
+            </div>
+        </div>
+        <cfinclude template="/includes/footer.cfm" />        
+    </div>
+</div>
+</body>
+</html> --->
