@@ -20,12 +20,12 @@
     <html>
         <head>
             <title>Isummation Technology</title>
-            <link rel="stylesheet" href="/job application form/style.css" />
+            <link rel="stylesheet" href="/job_application_form/style.css" />
         </head>
         <body>
             <cfoutput>
                 <!--- onsubmit="return fun_submit();" --->
-                <form name="frmJobApplication" action="./insert.cfm" id="frmJobApplication" method="get" class="content" enctype="multipart/form-data">
+                <form name="frmJobApplication" action="insert.cfm" id="frmJobApplication" method="get" class="content" enctype="multipart/form-data">
                     <div class="form">
                         <div class="form-head">
                             <h1>ISUMMATION TECHNOLOGIES</h1>
@@ -269,7 +269,6 @@
                     }
                     // return true;                
                     frm.submit();
-                    alert("Thank You");
                 }
                     
                  function showInput(obj) {
