@@ -1,3 +1,4 @@
+
 <cfparam name="url.id" />
 <cfoutput>
 <cfquery name="variables.qGetApplication" datasource="jobapps">
@@ -11,12 +12,12 @@
     <html>
         <head>
             <title>Isummation Technology</title>
-            <link rel="stylesheet" href="/job application form/style.css" />
+            <link rel="stylesheet" href="/job_application_form/style.css" />
         </head>
         <body>
             <cfoutput>
                 <!--- onsubmit="return fun_submit();" --->
-                <form name="frmJobApplication" action="./edit.cfm" id="frmJobApplication" method="post" class="content" enctype="multipart/form-data">
+                <form name="frmJobApplication" action="./update-action.cfm" id="frmJobApplication" method="post" class="content" enctype="multipart/form-data">
                     <div class="form">
                         <input type="hidden" name="id" value="#variables.qGetApplication.id#" id="id" />
                         <div class="form-head">
@@ -43,14 +44,14 @@
                         <div class="gender-bod">
                             <div class="gender">
                                 <p>Gender <span>*</span></p>
-                                <input type="radio" id="male" name="gender" value="male"/>
+                                <input type="radio" id="male" name="gender" value="male" <cfif variables.qGetApplication.gender eq 'male'>checked</cfif> />
                                 <label for="male">Male</label>
-                                <input type="radio" id="female" name="gender" value="female"/>
+                                <input type="radio" id="female" name="gender" value="female" <cfif variables.qGetApplication.gender eq 'female'>checked</cfif> />
                                 <label for="female">Female</label>
                             </div>
                             <div class="dob">
                                 <label>Birth Date <span>*</span></label>
-                                <input type="date" id="bod" name="bod" value="#variables.qGetApplication.birthDate#" placeholder="DD-MM-YYYY" />
+                                <input type="text" id="bod" name="bod" value="#dateFormat(variables.qGetApplication.birthDate, 'dd-mm-yyyy')#" />
                             </div>
                         </div> 
 
@@ -83,56 +84,56 @@
 
                         <div class="position">
                             <label for="position">What Position are you applying for ? <span>*</span></label>
-                            <select name="position" id="position" onchange="otherPosition(this)" value="#variables.qGetApplication.position#" >
+                            <select name="position" id="position" onchange="otherPosition(this)">
                                 <option value="">-SELECT-</option>
-                                <option value="frontend">Frontend Developer</option>
-                                <option value="backend">Backend Developer</option>
-                                <option value="fullstack">Full-Stack Developer</option>
-                                <option value="uiux">UI/UX Designer</option>
-                                <option value="socialMedia">Social Media Executive</option>
-                                <option value="Tester">Tester</option>
-                                <option value="otherpos">Other</option>
+                                <option value="frontend" <cfif variables.qGetApplication.position eq 'frontend'>selected</cfif> >Frontend Developer</option>
+                                <option value="backend" <cfif variables.qGetApplication.position eq 'backend'>selected</cfif>>Backend Developer</option>
+                                <option value="fullstack" <cfif variables.qGetApplication.position eq 'fullstack'>selected</cfif>>Full-Stack Developer</option>
+                                <option value="uiux" <cfif variables.qGetApplication.position eq 'uiux'>selected</cfif>>UI/UX Designer</option>
+                                <option value="socialMedia" <cfif variables.qGetApplication.position eq 'socialMedia'>selected</cfif>>Social Media Executive</option>
+                                <option value="Tester" <cfif variables.qGetApplication.position eq 'Tester'>selected</cfif>>Tester</option>
+                                <option value="otherpos" <cfif variables.qGetApplication.position eq 'otherpos'>selected</cfif>>Other</option>
                             </select>
                             <input type="text" class="otherpos" id="otherpos" name="otherpos" value="#variables.qGetApplication.positionOther#" placeholder="Others Position" style="display: none"/>
                         </div>
 
                         <div class="skils">
                             <p>Please Select your Skils <span>*</span></p>
-                            <input type="checkbox" id="react.js" name="skill" value="react" />
+                            <input type="checkbox" id="react.js" name="skill" value="react" <cfif listFindNoCase(variables.qGetApplication.skill, 'react')>checked</cfif> />
                             <label for="react">React.Js</label>
-                            <input type="checkbox" id="android" name="skill" value="android" />
+                            <input type="checkbox" id="android" name="skill" value="android" <cfif listFindNoCase(variables.qGetApplication.skill, 'android')>checked</cfif> />
                             <label for="android">Android</label>
-                            <input type="checkbox" id="ios" name="skill" value="ios" />
+                            <input type="checkbox" id="ios" name="skill" value="ios" <cfif listFindNoCase(variables.qGetApplication.skill, 'ios')>checked</cfif> />
                             <label for="ios">IOS</label><br/>
-                            <input type="checkbox" id="node.js" name="skill" value="node" />
+                            <input type="checkbox" id="node.js" name="skill" value="node" <cfif listFindNoCase(variables.qGetApplication.skill, 'node')>checked</cfif>  />
                             <label for="node">Node.Js</label>
-                            <input type="checkbox" id="coldfusion" name="skill" value="coldfusion" />
+                            <input type="checkbox" id="coldfusion" name="skill" value="coldfusion" <cfif listFindNoCase(variables.qGetApplication.skill, 'coldfusion')>checked</cfif> />
                             <label for="coldfusion">ColdFusion</label>
-                            <input type="checkbox" id="php" name="skill" value="php" />
+                            <input type="checkbox" id="php" name="skill" value="php" <cfif listFindNoCase(variables.qGetApplication.skill, 'php')>checked</cfif> />
                             <label for="php">PHP</label>
-                            <input type="checkbox" id="otherSkil" name="skill" value="other" onclick="showInput(this)" />
+                            <input type="checkbox" id="otherSkil" name="skill" value="other" onclick="showInput(this)" <cfif listFindNoCase(variables.qGetApplication.skill, 'other')>checked</cfif> />
                             <label for="otherSkil">Other</label>
                             <input type="text" class="otherinput" id="other" name="otherSkil" value="#variables.qGetApplication.skillOther#" placeholder="Others Skils" style="display: none"/>
                         </div>
 
                         <div class="employee">
                             <p>What is your current employee status? <span>*</span></p>
-                            <input type="radio" id="employee" name="employee" value="employee"/>
+                            <input type="radio" id="employee" name="employee" value="employee" <cfif variables.qGetApplication.empStatus eq 'employee'>checked</cfif> />
                             <label for="employee">Employee</label>
-                            <input type="radio" id="selfEmployee" name="employee" value="selfEmployee" />
+                            <input type="radio" id="selfEmployee" name="employee" value="selfEmployee" <cfif variables.qGetApplication.empStatus eq 'selfEmployee'>checked</cfif> />
                             <label for="selfEmployee">Self-Employee</label>
-                            <input type="radio" id="unEmployee" name="employee" value="unemployee"/>
+                            <input type="radio" id="unEmployee" name="employee" value="unemployee" <cfif variables.qGetApplication.empStatus eq 'unemployee'>checked</cfif> />
                             <label for="unEmployee">Unemployee</label>
-                            <input type="radio" id="student" name="employee" value="student"/>
+                            <input type="radio" id="student" name="employee" value="student" <cfif variables.qGetApplication.empStatus eq 'student'>checked</cfif> />
                             <label for="student">Student</label>
                         </div>
 
                         <div class="time">
                             <p>Prefered hours <span>*</span></p>
                             <select name="time" id="time" value="#variables.qGetApplication.time#" multiple>
-                                <option value="fullTime">Full Time</option>
-                                <option value="partTime">Part Time</option>
-                                <option value="workFromHome">Work From Home</option>
+                                <option value="fullTime" <cfif listFindNoCase(variables.qGetApplication.time, 'fullTime')>selected</cfif> >Full Time</option>
+                                <option value="partTime" <cfif listFindNoCase(variables.qGetApplication.time, 'partTime')>selected</cfif> >Part Time</option>
+                                <option value="workFromHome" <cfif listFindNoCase(variables.qGetApplication.time, 'workFromHome')>selected</cfif> >Work From Home</option>
                             </select>
                         </div>
 
@@ -261,7 +262,7 @@
                     }
                     // return true;                
                     frm.submit();
-                    alert("Record Updated successfully");
+                    // alert("Record Updated successfully");
                 }
                     
                  function showInput(obj) {
