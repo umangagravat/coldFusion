@@ -1,5 +1,4 @@
 <cfquery datasource="jobapps">
-
     insert into jobapplication (firstName, lastName, gender, birthDate, email, phone, address1, address2, city, zipCode, position, positionOther, skill, skillOther, empStatus, time, refFirstName, refLastName, refMail)
     values 
     (
@@ -27,66 +26,89 @@
 
 <!--- <cflocation url="/edit.cfm?id=#form.id#&message=Record Updated successfully" /> --->
 
-<!--- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/assets/style.css">    
-</head>
-<body>
-    <cfoutput>
-        <table border="1" cellpadding="5" cellspacing="0" width="100%">
-            <tr>
-                <td>First_Name</td>
-                <td>Last_Name</td>
-                <td>Gender</td>
-                <td>Birth Date</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td>Address Line1</td>
-                <td>Address Line2</td>
-                <td>City</td>
-                <td>Zip Code</td>
-                <td>Position</td>
-                <td>Position Other</td>
-                <td>Skill</td>
-                <td>Skill Other</td>
-                <td>Employee Status</td>
-                <td>Time</td>
-                <td>Reference_FirstName</td>
-                <td>Reference_LastName</td>
-                <td>Reference_Mail</td>
-            </tr>
-            <cfloop query="variables.qjobapplication">
-                <tr>
-                    <td>#variables.qjobapplication.firstName#</td>
-                    <td>#variables.qjobapplication.lastName#</td>
-                    <td>#variables.qjobapplication.gender#</td>
-                    <td>#variables.qjobapplication.birthDate#</td>
-                    <td>#variables.qjobapplication.email#</td>
-                    <td>#variables.qjobapplication.phone#</td>
-                    <td>#variables.qjobapplication.address1#</td>
-                    <td>#variables.qjobapplication.address2#</td>
-                    <td>#variables.qjobapplication.city#</td>
-                    <td>#variables.qjobapplication.zipCode#</td>
-                    <td>#variables.qjobapplication.position#</td>
-                    <td>#variables.qjobapplication.positionOther#</td>
-                    <td>#variables.qjobapplication.skill#</td>
-                    <td>#variables.qjobapplication.skillOther#</td>
-                    <td>#variables.qjobapplication.empStatus#</td>
-                    <td>#variables.qjobapplication.time#</td>
-                    <td>#variables.qjobapplication.refFirstName#</td>
-                    <td>#variables.qjobapplication.refLastName#</td>
-                    <td>#variables.qjobapplication.refMail#</td>
-                    <!--- <td>#dateTimeFormat(variables.qAddress.last_update, "dd/mm/yyyy HH:MM:ss tt")#</td> --->
-                </tr>
-            </cfloop>
-        </table>
-    </cfoutput>
-</body>
-</html> --->
+
+<DOCTYPE html>
+    <html>
+        <head>
+            <title>Update Form</title>
+        </head>
+        <style>
+            *{
+                margin :0px;
+                padding : 0px;
+            }
+            .content{
+                width : 100%;
+                height :100%;
+                display : flex;
+                align-items : center;
+                justify-content : center;
+            }
+            .status{
+                width : 50%;
+                height : 50%;
+                background-color:  #e1e1e1;
+                box-shadow : 0 6px 15px 0 black;
+            }
+    
+            .msg{
+                background-color:  #002c6a;
+                text-align : center;
+                color : white;
+                padding : 10px;
+                font-family: 'Franklin Gothic Medium';
+            }
+            
+            .info{
+                background-color:#fd9b28;
+                height : 5%;
+            }
+    
+            .record p{
+                text-align : center;
+                padding-top: 50px;
+                font-size : 1.5rem;
+                font-family : Verdana, sans-serif;  
+            }
+    
+            .button{
+                padding-top : 50px;
+                display : flex;
+                justify-content : center;
+            }
+    
+            .button a{
+                text-decoration : none;
+                border : 1px solid #fd9b28;
+                background-color : #fd9b28;
+                color : white;
+                padding : 5px;
+                margin-left : 15px;
+            }
+        </style>
+        <body>
+            <cfoutput>
+                <div class=content>
+                    <div class="status">
+                        <div class="msg">
+                            <p>RECORD STATUS</p>
+                        </div>
+    
+                        <div class="info"></div>
+    
+                        <div class="record">
+                            <p>Successfully Form Fill-Up</p>
+                        </div>
+    
+                        <div class="button">
+                            <a href="form.cfm">New form</a>
+                            <a href="update.cfm">Update form</a>
+                        </div>
+                    </div>
+                </div>
+            </cfoutput>
+        </body>
+    </html>
 
 
 
